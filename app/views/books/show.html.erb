@@ -45,6 +45,9 @@
         </tr>
         <% end %>
       </table>
+
+      <%= flash[:nocomment] %>
+
       <%= form_with model: [@book, @book_comment], local:true do |f| %>
       <!--<div class="comment-form">-->
         <%= f.text_area :comment %><br>
