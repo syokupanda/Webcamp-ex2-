@@ -15,3 +15,30 @@
     <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   </div>
 <% end %>
+
+<table class='table'>
+  <tr>
+    <td>follows</td>
+    <td>
+      <%= link_to follower_index_path(user) do %>
+        <%= user.follower_user.count %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>followers</td>
+    <td>
+      <%= link_to followed_index_path(user) do %>
+        <%= user.followed_user.count %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<% if user != current_user %>
+  <% if current_user.following?(user) %>
+    <%= link_to "フォロー外す", unfollow_path(user.id), method: :post %>
+  <% else %>
+    <%= link_to "フォローする", follow_path(user.id), method: :post %>
+  <% end %>
+<% end %>

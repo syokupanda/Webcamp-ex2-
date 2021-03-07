@@ -34,7 +34,7 @@ class User < ApplicationRecord
 
   # フォロー確認をおこなう
   def following?(user)
-    following_user.include?(user)
+    follower_user.include?(user)
   end
 
 end

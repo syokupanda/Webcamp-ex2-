@@ -10,4 +10,13 @@ class RelationshipsController < ApplicationController
     redirect_to users_path
   end
 
+  def follower_index
+    @user = User.find(params[:id])
+    @users = @user.follower_user
+  end
+
+  def followed_index
+     @users = User.all
+  end
+
 end
