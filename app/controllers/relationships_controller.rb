@@ -2,12 +2,12 @@ class RelationshipsController < ApplicationController
 
   def follow
     current_user.follow(params[:id])
-    redirect_to users_path
+    redirect_back(fallback_location:users_path)
   end
 
   def unfollow
     current_user.unfollow(params[:id])
-    redirect_to users_path
+    redirect_back(fallback_location:users_path)
   end
 
   def follower_index
