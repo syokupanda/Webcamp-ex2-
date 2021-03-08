@@ -16,7 +16,8 @@ class RelationshipsController < ApplicationController
   end
 
   def followed_index
-     @users = User.all
+    @user = User.find(params[:id])
+    @users = @user.followed_user
   end
 
 end
