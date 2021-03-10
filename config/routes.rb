@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'follower/:id' => 'relationships#follower_index', as: 'follower_index'
   get 'followed/:id' => 'relationships#followed_index', as: 'followed_index'
 
+  get 'search' => 'search#search'
+
   resources :relationships, only: [:follow, :unfollow]
   resources :users,only: [:show,:index,:edit,:update]
   resources :books do

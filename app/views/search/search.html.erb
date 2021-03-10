@@ -1,0 +1,10 @@
+<% if @model == "user" %>
+  <h3>Users search for <%= "【#{@letter}】" %></h3>
+  <%= render 'users/index',users: @data %>
+
+<% else %>
+
+  <h3>Books search for <%= "【#{@letter}】" %></h3>
+  <%= render 'books/index',books: @data %>
+
+<% end %>

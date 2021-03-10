@@ -37,4 +37,17 @@ class User < ApplicationRecord
     follower_user.include?(user)
   end
 
+  # 検索機能の条件付け
+  def self.search_for(target, letter)
+    if target == "perfect"
+      User.where("name LIKE?", "#{letter}")
+    elsif target == "part"
+      User.where("name LIKE?", "%#{letter}%")
+    elsif target == "front"
+      User.where("name LIKE?", "#{letter}%")
+    elsif target == "back"
+      User.where("name LIKE?", "%#{letter}")
+    end
+  end
+
 end

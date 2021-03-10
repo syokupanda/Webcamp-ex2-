@@ -44,8 +44,9 @@
           <% end %>
         </tr>
       </table>
+
       <table>
-        <% @comments.each do |comment| %>
+        <% @book.book_comments.each do |comment| %>
         <tr>
           <td>
             <%= link_to user_path(@book.user) do %>
